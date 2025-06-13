@@ -32,8 +32,8 @@ function DropdownInput({
         onChange={onChange}
       />
       <div className="dropdown-controls">
-        <div className="dropdown-clear">
-          {showClear && (
+        {showClear && (
+          <div className="dropdown-clear">
             <span
               onClick={(e) => {
                 e.stopPropagation();
@@ -42,8 +42,8 @@ function DropdownInput({
             >
               ×
             </span>
-          )}
-        </div>
+          </div>
+        )}
         <div className="dropdown-arrow-box">
           <svg
             className={`dropdown-arrow ${isOpen ? "open" : ""}`}

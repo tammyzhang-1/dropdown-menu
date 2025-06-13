@@ -90,6 +90,7 @@ function DropdownMenu() {
     return optionsTree;
   }, [inputText, isOpen, optionsTree]);
 
+  // Hook for handling clicks outside the dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
@@ -109,7 +110,7 @@ function DropdownMenu() {
     };
   }, []);
 
-  /* ---------- Handlers ---------- */
+  /* ---------- Event Handlers ---------- */
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newText = e.target.value;
     setInputText(newText);
@@ -123,18 +124,14 @@ function DropdownMenu() {
     setIsSearching(false);
   };
 
-  const toggleDropdown = () => {
-    if (!isOpen) {
-      setIsSearching(false);
-    }
-    setIsOpen((prev) => !prev);
+  const openDropdown = () => {
+    setIsOpen(true);
   };
 
   const handleClear = () => {
     setSelectedItem(null);
     setInputText("");
     setIsSearching(false);
-    setIsOpen(false);
   };
 
   /* ---------- Computed ---------- */
@@ -146,7 +143,7 @@ function DropdownMenu() {
   return (
     <div className="dropdown" ref={dropdownRef}>
       <DropdownInput
-        onClick={toggleDropdown}
+        onClick={openDropdown}
         isOpen={isOpen}
         value={inputValue}
         onChange={handleInputChange}
