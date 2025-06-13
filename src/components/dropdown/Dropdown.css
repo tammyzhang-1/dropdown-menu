@@ -1,0 +1,141 @@
+:root {
+  --dropdown-width: 500px;
+  --dropdown-indentation: 20px;
+  --dropdown-max-items: 15;
+  --dropdown-horizontal-padding: 1em;
+  --dropdown-item-height: 1.75em;
+  --dropdown-outline-color: #9b9b9b;
+  --dropdown-hover-color: #e6f0f5;
+}
+
+.dropdown {
+  width: var(--dropdown-width);
+}
+
+.dropdown-input {
+  width: 100%;
+  border: 1px solid var(--dropdown-outline-color);
+  box-sizing: border-box;
+  display: flex;
+}
+
+.dropdown-search {
+  width: 85%;
+  height: 100%;
+  box-sizing: border-box;
+  border: none;
+  display: block;
+  padding: 0.5em var(--dropdown-horizontal-padding);
+  white-space: nowrap;
+}
+
+.dropdown-search:focus {
+  outline: none;
+}
+
+.dropdown-controls {
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-clear {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5em;
+  color: #777777;
+}
+
+.dropdown-clear span:hover {
+  cursor: pointer;
+}
+
+.dropdown-arrow-box {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropdown-arrow-box:hover {
+  cursor: pointer;
+}
+
+.dropdown-arrow-box::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: var(--dropdown-outline-color);
+}
+
+.dropdown-arrow {
+  width: 0.75em;
+  height: 0.75em;
+  fill: #777777;
+  transition: transform 0.2s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+.dropdown-list {
+  width: 100%;
+  border: 1px solid var(--dropdown-outline-color);
+  border-top: none;
+  box-sizing: border-box;
+  padding: 0.25em 0;
+  max-height: calc(
+    0.5em + var(--dropdown-item-height) * var(--dropdown-max-items)
+  );
+  overflow-y: auto;
+}
+
+.dropdown-list::-webkit-scrollbar {
+  width: 0.75em;
+}
+
+.dropdown-list::-webkit-scrollbar-track {
+  background: #e1e1e1;
+}
+
+.dropdown-list::-webkit-scrollbar-thumb {
+  background-color: #777777;
+}
+
+.dropdown-item {
+  padding: 0 var(--dropdown-horizontal-padding);
+  height: var(--dropdown-item-height);
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-item:not(.county):hover {
+  cursor: default;
+}
+
+.dropdown-item.state {
+  padding-left: calc(
+    var(--dropdown-horizontal-padding) + var(--dropdown-indentation)
+  );
+}
+
+.dropdown-item.county {
+  padding-left: calc(
+    var(--dropdown-horizontal-padding) + 2 * var(--dropdown-indentation)
+  );
+}
+
+.dropdown-item.county:hover {
+  background-color: var(--dropdown-hover-color);
+  cursor: pointer;
+}
