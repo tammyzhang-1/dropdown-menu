@@ -1,6 +1,6 @@
 # Dropdown Menu
 
-Implementing a nested dropdown menu. This app was set up using Vite (React + TypeScript).
+Implementing a nested dropdown menu. This app was set up using Vite (React + TypeScript). See the live deployed site [here](https://tammy-zhang.com/dropdown-menu/).
 
 ## Prerequisites
 Make sure you have the following installed:
